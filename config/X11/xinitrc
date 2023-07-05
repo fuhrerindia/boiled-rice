@@ -1,4 +1,5 @@
-picom -f & #boom
+picom -f & 
+sxhkd &
 slstatus &
 xwallpaper --zoom ~/pix/wall/wall.png &
 exec dwm
