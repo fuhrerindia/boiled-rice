@@ -1,0 +1,11 @@
+#!/bin/sh
+
+selected_image=$(sxiv -otf "$HOME/pix/wall" | awk '{print $1}')
+walpath="$HOME/.local/share/harbs/walpath"
+if [ -z "$selected_image" ]; then
+  echo "No image selected. Exiting."
+  exit 1
+fi
+echo "$selected_image" > "$HOME/.selected_image_path"
+xwallpaper --zoom "$selected_image" && notify-send "Wallpaper set successfully."
+rm $walpath && echo $selected_image > $walpath
